@@ -12,7 +12,7 @@ let package = Package(
             targets: ["ImageSlideshow"]
         )
     ],
-    dependencies: []
+    dependencies: [],
     targets: [
         .target(
             name: "ImageSlideshow",
