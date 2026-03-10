@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // external libraries
-        .package(url: "https://github.com/zvonicek/ImageSlideshow.git", from: "1.8.1")
+        .package(url: "https://github.com/zvonicek/ImageSlideshow.git", from: "1.8.1"),
         .package(url: "https://github.com/Alamofire/AlamofireImage.git", from: "4.2.0"),
         .package(url: "https://github.com/AFNetworking/AFNetworking.git", from: "4.0.0"),
         .package(url: "https://github.com/rs/SDWebImage.git", from: "5.0.0"),
