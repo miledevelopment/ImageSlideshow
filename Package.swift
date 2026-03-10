@@ -8,8 +8,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "ImageSlideshow",
-            targets: ["ImageSlideshow"]
+            name: "MyAppImageSlideshow",
+            targets: ["MyAppImageSlideshow"]
         )
     ],
     dependencies: [
@@ -23,7 +23,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ImageSlideshow",
+            name: "MyAppImageSlideshow",
             dependencies: [
                 "AlamofireImage",
                 "AFNetworking",
