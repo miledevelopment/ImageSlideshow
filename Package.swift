@@ -12,10 +12,13 @@ let package = Package(
             targets: ["ImageSlideshow"]
         )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.9.0")
+    ],
     targets: [
         .target(
             name: "ImageSlideshow",
+            dependencies: ["Kingfisher"],
             path: "ImageSlideshow",
             resources: [
                 .process("Assets")
