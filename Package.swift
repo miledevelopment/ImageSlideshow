@@ -13,7 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.9.0")
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "8.8.0")
     ],
     targets: [
         .target(
