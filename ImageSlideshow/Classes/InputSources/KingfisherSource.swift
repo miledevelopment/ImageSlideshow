@@ -12,12 +12,13 @@ import Kingfisher
 /// Input Source to image using Kingfisher
 @MainActor
 public class KingfisherSource: NSObject, InputSource {
+
     /// URL to load
     public var url: URL
 
     /// Placeholder used before image is loaded
     public var placeholder: UIImage?
-    
+
     /// Options for displaying, e.g. [.transition(.fade(0.2))]
     public var options: KingfisherOptionsInfo?
 
@@ -37,29 +38,32 @@ public class KingfisherSource: NSObject, InputSource {
         self.options = options
         super.init()
     }
-    
+
     /// Load an image to a UIImageView
     /// - Parameters:
     ///   - imageView: UIImageView that receives the loaded image
     ///   - callback: Completion callback with an optional image
     public func load(to imageView: UIImageView, with callback: @escaping (UIImage?) -> Void) {
+
         imageView.kf.setImage(
             with: self.url,
             placeholder: self.placeholder,
-            options: self.options,
-            progressBlock: nil
+            options: self.options
         ) { result in
-            switch result {
-            case .success(let image):
-                callback(image.image)
-            case .failure:
-                callback(nil)
+
+            Task { @MainActor in
+                switch result {
+                case .success(let imageResult):
+                    callback(imageResult.image)
+                case .failure:
+                    callback(nil)
+                }
             }
+
         }
     }
-    
+
     /// Cancel an image download task
-    /// - Parameter imageView: UIImageView with the download task that should be canceled
     public func cancelLoad(on imageView: UIImageView) {
         imageView.kf.cancelDownloadTask()
     }
